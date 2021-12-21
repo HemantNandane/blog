@@ -1,0 +1,27 @@
+<h1>hello this is the book :{{book.title}}</h1>
+<h2>this book is written by :{{book.author}}</h2>
+<h3>{{book.descriptions}}</h3>
+<img src="{{book.image.url}}" width="500px" />
+
+<div>
+  {% for rev in reviews %}
+  <div>
+    <button>
+      <h4>{{rev.name}}</h4>
+      <p>{{rev.ratings}}</p>
+      <p>{{rev.review}}</p>
+    </button>
+  </div>
+  {% endfor %}
+</div>
+
+<br /><br /><br />
+
+<form method="post" action="{% url 'book:hemant' book.id %}" role="form">
+  {% csrf_token %} your name:
+  <input type="text" name="reviewsname" /><br />
+  ratings:<input type="number" name="reviewsratings" /><br />
+  review:<input type="text" name="reviewbody" />
+  <br />
+  <button>submit</button>
+</form>

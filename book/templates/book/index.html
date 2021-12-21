@@ -1,0 +1,13 @@
+<h1>hello leader</h1>
+
+{% for book in books %}
+<div>
+  <a href="{% url 'book:review' book.id %}">
+    <img src="{{book.image.url}}" alt="{{book.title}}" width="300px" />
+    <h2>{{book.title}}</h2>
+    <h3>{{book.author}}</h3>
+    <p>{{book.description}}</p>
+  </a>
+</div>
+
+{% endfor %}
